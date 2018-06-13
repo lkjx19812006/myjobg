@@ -1,0 +1,39 @@
+$themeColor: #194FC8;//主题色
+$hoverColor: #366be4;
+$activeColor: #224492;
+
+
+$titleColor: #1F283B;//标题颜色
+$textColor: #707070;//文字颜色 
+$tipColor: #A0A0A0;//提示文案颜色
+$priceColor: #CA1251;//价钱颜色
+
+$itemTitleColor: #1F1F1F;//列表总标题颜色
+$itemSubTitleColor: #282828;//列表子标题颜色
+
+$bodybgc: #F5F5F5;//body的背景色
+$em-base: 100;
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@function strip-units($value) {
+  @return ($value / ($value * 0 + 1));
+}
+
+@function rem($pxval) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+
+  $base: $em-base;
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+  @return ($pxval / $base) * 1rem;
+}
+
